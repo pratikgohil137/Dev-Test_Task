@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main dashboard container -->
+  <div class="dashboard">
+
+    <!--  SIDEBAR -->
+    <aside class="sidebar">
+      
+      <!-- Logo section -->
+      <div class="logo">
+        <img src="Assets/Logo.png" alt="trackInc Logo">
+      </div>
+
+      <!-- Navigation menu -->
+      <nav class="menu">
+        <button class="menu-item active">
+          <img src="Assets/dashboard-on.svg" alt="">
+          <span>Dashboard</span>
+        </button>
+        <button class="menu-item">
+          <img src="Assets/invoice-off.svg" alt="">
+          <span>Invoices</span>
+        </button>
+        <button class="menu-item">
+          <img src="Assets/invoice-off.svg" alt="">
+          <span>Proposals</span>
+        </button>
+        <button class="menu-item">
+          <img src="Assets/proposals-off.svg" alt="">
+          <span>Services</span>
+        </button>
+        <button class="menu-item">
+          <img src="Assets/services-off.svg" alt="">
+          <span>Transactions</span>
+        </button>
+        <button class="menu-item">
+          <img src="Assets/transactions-off.svg" alt="">
+          <span>Projects</span>
+        </button>
+        <button class="menu-item">
+          <img src="Assets/customers.svg" alt="">
+          <span>Customers</span>
+        </button>
+      </nav>
+
+      <!-- Bottom menu items (Settings & Logout) -->
+      <div class="sidebar-bottom">
+        <button class="menu-item">
+          <img src="Assets/settings-off.svg" alt="">
+          <span>Settings</span>
+        </button>
+        <button class="menu-item">
+          <img src="Assets/logout-off.svg" alt="">
+          <span>Log out</span>
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="content">
+
+      <!-- Top header bar -->
+      <header class="header">
+        <!-- Welcome message and user actions -->
+        <div class="header-top">
+          <h1 class="welcome-text">
+            Hi, Welcome back <span class="highlight">Robert!</span>
+          </h1>
+          
+          <div class="header-actions">
+            <!-- Search box -->
+            <div class="search-box">
+              <img src="Assets/search.svg" alt="Search icon">
+              <input type="search" placeholder="Search...">
+            </div>
+            
+            <!-- Notification button with badge -->
+            <button class="icon-btn notification-btn">
+              <img src="Assets/notifications.svg" alt="Notifications">
+              <span class="badge"></span>
+            </button>
+            
+            <!-- User avatar -->
+            <button class="avatar">
+              <img src="Assets/Ellipse 3.png" alt="User avatar">
+            </button>
+          </div>
+        </div>
+
+        <!-- Page title -->
+        <h2 class="page-title">Finance Overview</h2>
+      </header>
+
+      <!-- Main content section -->
+      <main>
+
+        <!-- Statistics cards row -->
+        <section class="stats-grid">
+          <!-- Sales card -->
+          <div class="card stat-card sales">
+            <div class="card-content">
+              <p class="stat-value">$ 2,77,120</p>
+              <p class="stat-label">Sales</p>
+            </div>
+            <img src="Assets/insights.png" alt="" class="stat-icon">
+          </div>
+
+          <!-- Expense card -->
+          <div class="card stat-card expense">
+            <div class="card-content">
+              <p class="stat-value">$ 60,100</p>
+              <p class="stat-label">Expense</p>
+            </div>
+            <img src="Assets/Expense.png" alt="" class="stat-icon">
+          </div>
+
+          <!-- Profit card -->
+          <div class="card stat-card profit">
+            <div class="card-content">
+              <p class="stat-value">$ 57,230</p>
+              <p class="stat-label">Profit</p>
+            </div>
+            <img src="Assets/Profit.png" alt="" class="stat-icon">
+          </div>
+
+          <!-- Income card -->
+          <div class="card stat-card income">
+            <div class="card-content">
+              <p class="stat-value">$ 1,60,124</p>
+              <p class="stat-label">Income</p>
+            </div>
+            <img src="Assets/Income.png" alt="" class="stat-icon">
+          </div>
+        </section>
+
+        <!-- Projects table section -->
+        <section class="card projects-card">
+          <div class="card-header">
+            <h2>Current Projects</h2>
+            <button class="btn btn-primary">Create</button>
+          </div>
+          
+          <div class="table-container">
+            <table class="projects-table">
+              <thead>
+                <tr>
+                  <th>Project Name</th>
+                  <th>Customer</th>
+                  <th>Sent Date</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Travel app design</td>
+                  <td>Jacob Jones</td>
+                  <td>28 Oct 2022</td>
+                  <td>
+                    <span class="amount">$ 240.90</span>
+                    <span class="status sent">SENT</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>UX Research for Event management app</td>
+                  <td>Wade Warren</td>
+                  <td>18 Oct 2022</td>
+                  <td>
+                    <span class="amount">$ 120.00</span>
+                    <span class="status draft">DRAFT</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Redesign - Food delivery app</td>
+                  <td>Annette Black</td>
+                  <td>15 Oct 2022</td>
+                  <td>
+                    <span class="amount">$ 351.00</span>
+                    <span class="status paid">PAID</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Web App - Online Learning</td>
+                  <td>Cameron Williamson</td>
+                  <td>15 Oct 2022</td>
+                  <td>
+                    <span class="amount">$ 240.90</span>
+                    <span class="status paid">PAID</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Railway web casestudy</td>
+                  <td>Robert Fox</td>
+                  <td>13 Oct 2022</td>
+                  <td>
+                    <span class="amount">$ 153.00</span>
+                    <span class="status sent">SENT</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Responsive web design</td>
+                  <td>Floyd Miles</td>
+                  <td>06 Oct 2022</td>
+                  <td>
+                    <span class="amount">$ 140.90</span>
+                    <span class="status rejected">REJECTED</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Music app design</td>
+                  <td>Theresa Webb</td>
+                  <td>04 Oct 2022</td>
+                  <td>
+                    <span class="amount">$ 345.90</span>
+                    <span class="status draft">DRAFT</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Events section -->
+        <section class="card events-card">
+          <div class="card-header">
+            <h2>Events</h2>
+          </div>
+          
+          <div class="events-list">
+            <!-- Event item 1 -->
+            <div class="event">
+              <img src="Assets/Ellipse 45.png" alt="Wade Warren" class="event-avatar">
+              <div class="event-details">
+                <p class="event-name">Wade Warren</p>
+                <p class="event-info">
+                  <span class="event-tag">🎂 Birthday</span>
+                  <span class="dot"></span>
+                  <span class="event-date">Today</span>
+                </p>
+              </div>
+              <button class="btn btn-blue btn-small">Wish</button>
+            </div>
+
+            <!-- Event item 2 -->
+            <div class="event">
+              <img src="Assets/Ellipse 46.png" alt="Wade Warren" class="event-avatar">
+              <div class="event-details">
+                <p class="event-name">Wade Warren</p>
+                <p class="event-info">
+                  <span class="event-tag">🎉 Joining Us</span>
+                  <span class="dot"></span>
+                  <span class="event-date">Today</span>
+                </p>
+              </div>
+              <button class="btn btn-blue btn-small">Congratulations</button>
+            </div>
+
+            <!-- Event item 3 -->
+            <div class="event">
+              <img src="Assets/Ellipse 47.png" alt="Wade Warren" class="event-avatar">
+              <div class="event-details">
+                <p class="event-name">Wade Warren</p>
+                <p class="event-info">
+                  <span class="event-tag gray">💼 Work Anniversary</span>
+                  <span class="dot"></span>
+                  <span class="event-date">7 September, 2022</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Event item 4 -->
+            <div class="event">
+              <img src="Assets/Ellipse 3.png" alt="Wade Warren" class="event-avatar">
+              <div class="event-details">
+                <p class="event-name">Wade Warren</p>
+                <p class="event-info">
+                  <span class="event-tag gray">1 Month Remaining</span>
+                  <span class="dot"></span>
+                  <span class="event-date">23 September, 2022</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+</body>
+</html>

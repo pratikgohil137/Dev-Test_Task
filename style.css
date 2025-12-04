@@ -1,0 +1,716 @@
+
+/* Reset and basic setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f3f3f3;
+  color: #12141d;
+}
+
+/* ===== MAIN LAYOUT ===== */
+/* Dashboard uses CSS Grid to create two columns: sidebar + content */
+.dashboard {
+  display: grid;
+  grid-template-columns: 240px 1fr; /* Fixed sidebar width, flexible content */
+  min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0 24px;
+}
+
+/* Logo section */
+.logo {
+  padding: 0 24px 32px;
+  border-bottom: 1px solid #ebebeb;
+  text-align: center;
+}
+
+.logo img {
+  max-width: 120px;
+  height: auto;
+}
+
+/* Navigation menu */
+.menu {
+  margin-top: 40px;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Individual menu item */
+.menu-item {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #767676;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.menu-item:hover {
+  background-color: #f5f7f8;
+}
+
+/* Active menu item */
+.menu-item.active {
+  background-color: rgba(28, 210, 173, 0.1);
+  color: #1cd2ad;
+  font-weight: 600;
+}
+
+.menu-item img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Bottom section of sidebar (Settings & Logout) */
+.sidebar-bottom {
+  margin-top: auto; 
+  padding: 24px 12px 0;
+  border-top: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* MAIN CONTENT AREA */
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.header {
+  background-color: #121e48; 
+  color: white;
+  padding: 32px 32px 24px;
+}
+
+/* Top row with welcome message and actions */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.welcome-text {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.welcome-text .highlight {
+  color: #1cd2ad; 
+  font-weight: 600;
+}
+
+/* Header actions (search, notifications, avatar) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Search box */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
+}
+
+.search-box:focus-within {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.search-box img {
+  width: 20px;
+  height: 20px;
+}
+
+.search-box input {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 0.875rem;
+  outline: none;
+  width: 180px;
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Icon button (for notifications) */
+.icon-btn {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.notification-btn {
+  background-color: #1c244f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Red notification badge */
+.badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: #ec4a4a;
+  border-radius: 50%;
+  border: 2px solid #121e48;
+}
+
+/* User avatar button */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Page title */
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* MAIN CONTENT SECTION */
+main {
+  padding: 24px 32px 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* STATISTICS CARDS */
+/* Grid layout for 4 cards in a row */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Base card styling */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  border: 0.5px solid #ebebeb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Stat card specific styling */
+.stat-card {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #12141d;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: rgba(18, 20, 29, 0.5);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+}
+
+/* Colored backgrounds for each stat card */
+.stat-card.sales {
+  background: linear-gradient(135deg, rgba(120, 62, 253, 0.06), transparent), white;
+}
+
+.stat-card.expense {
+  background: linear-gradient(135deg, rgba(236, 74, 74, 0.06), transparent), white;
+}
+
+.stat-card.profit {
+  background: linear-gradient(135deg, rgba(255, 159, 64, 0.06), transparent), white;
+}
+
+.stat-card.income {
+  background: linear-gradient(135deg, rgba(84, 204, 220, 0.06), transparent), white;
+}
+
+/* PROJECTS CARD  */
+.projects-card {
+  padding: 22px 24px 24px;
+}
+
+/* Card header (title + button) */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.card-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1c1c28;
+}
+
+/* Table container with scroll */
+.table-container {
+  max-height: 520px;
+  overflow: auto;
+}
+
+/* ===== PROJECTS TABLE ===== */
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+/* Table header */
+.projects-table thead th {
+  text-align: left;
+  padding: 16px;
+  border-bottom: 1px solid #aaaaaa;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  color: #12141d;
+}
+
+/* Table body rows */
+.projects-table tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.projects-table tbody tr:nth-child(even) {
+  background-color: #f9fbfb;
+}
+
+.projects-table td {
+  padding: 16px;
+  color: #8e90a6;
+}
+
+/* Amount column styling */
+.projects-table td:last-child {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.amount {
+  min-width: 80px;
+}
+
+/* Status badges */
+.status {
+  display: inline-block;
+  padding: 2px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 80px;
+}
+
+.status.sent {
+  background-color: #e5f7fb;
+  color: #18c3d9;
+}
+
+.status.draft {
+  background-color: rgba(170, 170, 170, 0.2);
+  color: #aaaaaa;
+}
+
+.status.paid {
+  background-color: rgba(28, 210, 173, 0.2);
+  color: #1cd2ad;
+}
+
+.status.rejected {
+  background-color: #fedbdb;
+  color: #ec4a4a;
+}
+
+/* EVENTS CARD */
+.events-card {
+  max-width: 450px;
+  padding: 22px 24px 24px;
+}
+
+.events-list {
+  max-height: 332px;
+  overflow: hidden;
+}
+
+/* Individual event item */
+.event {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f2f6;
+}
+
+.event:last-child {
+  border-bottom: none;
+}
+
+/* Event avatar image */
+.event-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Event details section */
+.event-details {
+  flex: 1; 
+}
+
+.event-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1c1c28;
+  margin-bottom: 4px;
+}
+
+.event-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+}
+
+.event-tag {
+  color: #1e88e5;
+  font-weight: 500;
+}
+
+.event-tag.gray {
+  color: #555770;
+}
+
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background-color: #c7c8d9;
+  border-radius: 50%;
+}
+
+.event-date {
+  color: #555770;
+}
+
+/* BUTTONS */
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: #1cd2ad;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #18c3d9;
+}
+
+.btn-blue {
+  background-color: #1e88e5;
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: #1565c0;
+}
+
+.btn-small {
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Medium screens (tablets) */
+@media (max-width: 1200px) {
+  /* 2 columns for stats instead of 4 */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Side-by-side layout for projects and events */
+  main {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  
+  .stats-grid {
+    grid-column: 1 / -1; /* Stats span full width */
+  }
+}
+
+/* Small screens (mobile landscape) */
+@media (max-width: 992px) {
+  /* Single column layout */
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Horizontal scrolling sidebar for mobile */
+  .sidebar {
+    flex-direction: row;
+    padding: 16px;
+    overflow-x: auto;
+  }
+  
+  .logo {
+    border-bottom: none;
+    padding: 0 16px;
+  }
+  
+  .menu {
+    margin-top: 0;
+    flex-direction: row;
+    padding: 0 8px;
+  }
+  
+  .menu-item {
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+  
+  .sidebar-bottom {
+    display: none;
+  }
+  
+  .header {
+    padding: 24px 16px 20px;
+  }
+  
+  main {
+    padding: 20px 16px 32px;
+    grid-template-columns: 1fr;
+  }
+  
+  .events-card {
+    max-width: 100%;
+  }
+}
+
+/* Extra small screens (mobile portrait) */
+@media (max-width: 640px) {
+  /* Stack header elements */
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  /* Make search box full width on mobile */
+  .search-box {
+    flex: 1;
+  }
+  
+  .search-box input {
+    width: 100%;
+  }
+  
+  /* Reduce header spacing for mobile */
+  .header-top {
+    margin-bottom: 32px;
+  }
+  
+  .page-title {
+    font-size: 1.25rem;
+  }
+  
+  /* Single column for stats */
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Adjust stat cards for mobile */
+  .stat-card {
+    padding: 16px 20px;
+  }
+  
+  .stat-value {
+    font-size: 1.125rem;
+  }
+  
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Make table scrollable horizontally on very small screens */
+  .table-container {
+    overflow-x: auto;
+    max-height: none;
+  }
+  
+  /* Smaller table font */
+  .projects-table {
+    font-size: 0.875rem;
+    min-width: 600px; 
+  }
+  
+  .projects-table thead th,
+  .projects-table td {
+    padding: 12px;
+  }
+  
+  /* Stack amount and status vertically */
+  .projects-table td:last-child {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  /* Adjust card padding for mobile */
+  .projects-card,
+  .events-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .card-header {
+    margin-bottom: 12px;
+  }
+  
+  /* Event items more compact */
+  .event {
+    padding: 12px 0;
+  }
+  
+  .event-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .event-name {
+    font-size: 0.9375rem;
+  }
+  
+  .event-info {
+    font-size: 0.8125rem;
+  }
+  
+  /* Button adjustments */
+  .btn-small {
+    padding: 4px 6px;
+    font-size: 0.6875rem;
+  }
+}
+
+/* Ultra small screens (very small phones) */
+@media (max-width: 375px) {
+  main {
+    padding: 16px 12px 24px;
+  }
+  
+  .header {
+    padding: 20px 12px 16px;
+  }
+  
+  /* Smaller welcome text */
+  .welcome-text {
+    font-size: 1.125rem;
+  }
+  
+  /* Hide search box completely on very small screens to save space */
+  .search-box {
+    display: none;
+  }
+  
+  .menu-item {
+    padding: 10px 16px;
+    font-size: 0.875rem;
+  }
+  
+  .menu-item img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .stats-grid {
+    gap: 16px;
+  }
+  
+  main {
+    gap: 16px;
+  }
+}
