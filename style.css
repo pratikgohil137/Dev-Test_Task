@@ -12,15 +12,15 @@ body {
   color: #12141d;
 }
 
-/* ===== MAIN LAYOUT ===== */
-/* Dashboard uses CSS Grid to create two columns: sidebar + content */
+/* MAIN LAYOUT */
+
 .dashboard {
   display: grid;
-  grid-template-columns: 240px 1fr; /* Fixed sidebar width, flexible content */
+  grid-template-columns: 240px 1fr; 
   min-height: 100vh;
 }
 
-/* ===== SIDEBAR ===== */
+/* SIDEBAR */
 .sidebar {
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
@@ -230,7 +230,6 @@ main {
 }
 
 /* STATISTICS CARDS */
-/* Grid layout for 4 cards in a row */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -503,24 +502,21 @@ main {
 
 /* Medium screens (tablets) */
 @media (max-width: 1200px) {
-  /* 2 columns for stats instead of 4 */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  /* Side-by-side layout for projects and events */
   main {
     grid-template-columns: 1.5fr 1fr;
   }
   
   .stats-grid {
-    grid-column: 1 / -1; /* Stats span full width */
+    grid-column: 1 / -1; 
   }
 }
 
 /* Small screens (mobile landscape) */
 @media (max-width: 992px) {
-  /* Single column layout */
   .dashboard {
     grid-template-columns: 1fr;
   }
@@ -568,7 +564,6 @@ main {
 
 /* Extra small screens (mobile portrait) */
 @media (max-width: 640px) {
-  /* Stack header elements */
   .header-top {
     flex-direction: column;
     align-items: flex-start;
@@ -690,8 +685,7 @@ main {
   .welcome-text {
     font-size: 1.125rem;
   }
-  
-  /* Hide search box completely on very small screens to save space */
+
   .search-box {
     display: none;
   }
